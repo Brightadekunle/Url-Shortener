@@ -8,21 +8,21 @@
   </head>
   <body>
   <section class="section">
-    <%= links %>
-    <!-- <div class="container">
+    <% baseUrl = "http://localhost:5000/" %>
+    <div class="container">
         <div class="field">
             <label class="label">Original URL</label>
             <div class="control">
-                <input class="input" type="text" name="original_url" value="">
+                <input class="input" type="text" name="original_url" value="<%= link.originalUrl %>">
             </div>
         </div>
         <div class="field">
             <label class="label">New URL</label>
             <div class="control">
-                <input class="input" type="text" name="original_url" value="">
+                <input class="input" type="text" name="original_url" value="<%= baseUrl +  link.shortUrl %>">
             </div>
         </div>
-    </div> -->
+    </div>
   </section>
   </body>
 </html>

@@ -10,7 +10,7 @@
   <body>
   <section class="section">
     <div class="container">
-        
+        <% baseUrl = "http://localhost:5000/" %>
         <table class="table">
             <thead>
                 <tr>
@@ -23,11 +23,13 @@
               
             </tfoot>
             <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+              <% for (link of links) { %>
+              <tr>
+                <td><%= link.originalUrl %></td>
+                <td>"<%= baseUrl +  link.shortUrl %>"</td>
+                <td><%= link.visits %></td>
             </tr>
+            <% } %>
             </tbody>
           </table>
     </div>

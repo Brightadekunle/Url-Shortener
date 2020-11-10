@@ -1,5 +1,4 @@
 const express = require('express')
-// const ejs = require('ejs')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
@@ -11,10 +10,13 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(result => console.log('MongoDB connected...'))
     .catch(err => console.log(err))
 
-
+// Bodyparser
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+
+// View engine
 app.set('view engine', 'ejs')
+
 
 const indexRoutes = require('./routes/index')
 
