@@ -51,8 +51,14 @@ const getShortUrl = (req, res, next) => {
     let shortUrl = req.params.shortUrl
     Link.findOne({ shortUrl: shortUrl })
         .then(url => {
-            const link = url.originalUrl
-            return res.redirect(link)
+            console.log(`url- ${url}`)
+            url.visits+=1
+            url.save()
+                .then(result => {
+                    console.log(`visits ${url.visits}`)
+                    const link = url.originalUrl
+                    return res.redirect(link)
+                })
         })
         .catch(err => console.log(`err- ${err}`))
 }
